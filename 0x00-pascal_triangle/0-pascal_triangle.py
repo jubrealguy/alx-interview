@@ -1,12 +1,23 @@
 #!/usr/bin/python3
+"""
+A Pascal Triangle
+"""
+
 
 def pascal_triangle(n):
-    arr = [1, 2, 1]
-    for i in range(n):
-        newArr = []
-        newArr.append(1)
-        for j in range(len(arr) - 1):
-            newArr[j + 1] = arr[j] + arr[j + 1]
-        newArr.insert(-1, 1)
-        newArr = arr
-        return newArr
+    """
+    A function that returns  a list of lists of integers
+    representing the Pascal’s triangle n
+    """
+    if n <= 0:
+        return []
+    """Initializing first row"""
+    result = [[1]]
+    """Looping through the other rows"""
+    for i in range(1, n):
+        row = [1]
+        for j in range(1, i):
+            row.append(result[i - 1][j - 1] + result[i - 1][j])
+        row.append(1)
+        result.append(row)
+    return result
