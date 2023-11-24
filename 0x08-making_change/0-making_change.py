@@ -8,7 +8,7 @@ number of coins needed to meet a given amount total
 def makeChange(coins, total):
     """returns the fewest number of coins to meet total"""
     if total <= 0:
-        return -1
+        return 0
 
     """Sorting the list of coins in descending order"""
     coins.sort(reverse=True)
